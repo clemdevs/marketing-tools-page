@@ -2,11 +2,11 @@
 Landing page with BootstrapJS
 
 ## Requirements
-You Node.js version 12.0 or above
+You need Node.js version 12.0 or above
 
 ## How to run
 
-1. Clone the project
-2. Go to the project root directory.
-3. Run `npm install` to install the dependencies.
-4. Run 'npm run dev' to start the server on `http://localhost`
+1. Clone the project from github repository.
+1. Open project root directory in terminal.
+2. Run `npm install` to install the dependencies.
+3. Run `npm run dev` to start the server on `http://localhost/`
