@@ -1,0 +1,29 @@
+$theme-colors: (
+    'info': #0496ff,
+    'success': #25e057,
+    'dark': rgb(16, 25, 32)
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 2560px
+)!default;
+
+$display-font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.61111rem,
+  5: 3rem,
+  6: 2.5rem
+) !default;
+
+$container-max-widths: (
+    xxl: 2560px
+);
+
+$enable-rounded : false; //disable rounded corners for buttons

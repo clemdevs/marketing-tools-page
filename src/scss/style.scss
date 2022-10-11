@@ -1,0 +1,142 @@
+@import './abstract/variables';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 2560px;
+
+$nav-height: 80px;
+
+@media(max-width: $md){
+    $nav-height: 204px;
+}
+
+body, html{
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 18px;
+    color: #fff;
+}
+
+/* BEGIN navigation */
+
+nav{
+    min-height: $nav-height;
+    z-index: 999;
+    .navbar-nav{
+        li {
+            &:first-child{
+                margin-right: 6px;
+                @media(max-width: $md){
+                    margin-right: 0;
+                }
+            }
+            &:last-child{
+                margin-left: 6px;
+                @media(max-width: $md){
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    .btn{
+        display: inline-block;
+        min-width: 180px;
+        height: 50px;
+        font-size: 16px;
+        line-height: 2.3;
+        margin: 0;
+
+    }
+}
+
+.navbar-menu{
+    display: inline-block;
+    position: relative;
+    width: 140px;
+    margin: auto 0;
+    .menu-bar{
+        width: 35px;
+        margin: auto;
+        cursor: pointer;
+    }
+    span {
+        display: block;
+        margin-bottom: 6px;
+        background-color: #fff;
+        height: 6px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* END navigation */
+
+
+/* BEGIN hero-area */
+
+.hero-area{
+    position: absolute;
+    width: 100%;
+    height: 830px;
+    top: 0;
+    left: 0; right: 0;
+
+    &__content{
+        position: absolute;
+        width: 100%;
+        height: 750px;
+        bottom: 0;
+        z-index: 2;
+        &--mask-gray{
+            background-image: url('../img/svg/mask-gray.svg');
+            z-index: -1;
+        }
+        &--mask-blue{
+            background-image: url('../img/svg/mask-blue.svg');
+            z-index: -2;
+        }
+    }
+
+    &__subheading{
+        font-size: 25px;
+        width: 75%;
+        @media(max-width: $md){
+            font-size: 20px;
+            width: auto;
+        }
+    }
+
+    .hero-banner {
+        position: relative;
+        height: 100%;
+        .banner{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: -3;
+            &--overlay{
+                background-image: url('../img/svg/hero-area.svg');
+            }
+        }
+
+        a.btn{
+            width: 350px;
+            height: 80px;
+            font-size: 20px;
+            line-height: 3.2;
+            @media(max-width: $md){
+                width: auto;
+            }
+        }
+    }
+}
+
+
+/* END hero-area */
