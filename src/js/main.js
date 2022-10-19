@@ -4,6 +4,6 @@ import '@fontsource/roboto';
 import '@popperjs/core';
 
 
-$('.navbar-menu').click(function(){
+$('.navbar-menu').on('click', function(){
     $($('.navbar-nav')[0]).toggleClass('active');
 });

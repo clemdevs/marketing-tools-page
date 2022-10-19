@@ -298,49 +298,53 @@ section.resources{
 /* END section resources */
 
 /* BEGIN carousel */
-.carousel-dark{
-        .carousel-indicators{
-        top: 100%;
-        bottom: unset;
-        li[data-bs-target].active{
-            width: 20px; height: 20px;
-            margin-right: 10px;
-            margin-left: 10px;
-            background-color: #47525d;
-            border-radius: 50%;
-        }
-        li[data-bs-target]{
-            width: 20px; height: 20px;
-            background-color: #dedede;
-            border-radius: 50%;
-        }
 
-    }
-    // .carousel-control-prev{
-    //     transform: translateX(-100%);
-    //     @media(max-width: $xl){
-    //         transform: translateX(0);
-    //     }
-    // }
-    // .carousel-control-next{
-    //     transform: translateX(100%);
-    //     @media(max-width: $xl){
-    //         transform: translateX(0);
-    //     }
-    // }
 
-    .carousel-item.active{
-        display: flex;
-        justify-content: center;
-        @media(max-width: $xl){
-            flex-direction: column;
-            align-items: center;
+    .carousel-dark{
+        position: relative;
+            .carousel-indicators{
+            top: 100%;
+            bottom: unset;
+            button[data-bs-target].active{
+                width: 20px; height: 20px;
+                margin-right: 10px;
+                margin-left: 10px;
+                background-color: #47525d;
+                border-radius: 50%;
+            }
+            button[data-bs-target]{
+                width: 20px; height: 20px;
+                background-color: #dedede;
+                border-radius: 50%;
+            }
+
         }
-    }
+        // .carousel-control-prev{
+        //     transform: translateX(-100%);
+        //     @media(max-width: $xl){
+        //         transform: translateX(0);
+        //     }
+        // }
+        // .carousel-control-next{
+        //     transform: translateX(100%);
+        //     @media(max-width: $xl){
+        //         transform: translateX(0);
+        //     }
+        // }
+
+        // .carousel-item.active{
+        //     display: flex;
+        //     justify-content: center;
+        //     @media(max-width: $xl){
+        //         flex-direction: column;
+        //         align-items: center;
+        //     }
+        // }
+        
+        // .carousel-item{
+        //     display: none;
+        // }
     
-    .carousel-item{
-        display: none;
-    }
 }
 /* END carousel */
 
