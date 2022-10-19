@@ -1,6 +1,10 @@
 @import './abstract/variables';
 @import './abstract/spacing';
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/brands';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/solid';
+
 
 $xs: 0;
 $sm: 576px;
@@ -71,6 +75,16 @@ div.cta{
     }
 }
 
+.cards-wrapper{
+    display: flex;
+    justify-content: center;
+
+    @media(max-width: $md)
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 /* BEGIN navigation */
 nav{
@@ -357,16 +371,7 @@ section.about{
 // }
 
 section.register-now{
-    .cards-wrapper{
-        display: flex;
-        justify-content: center;
 
-        @media(max-width: $lg)
-        {
-            flex-direction: column;
-            align-items: center;
-        }
-    }
     .card{
         @media(max-width: $lg){
             width: auto;
@@ -386,107 +391,163 @@ section.register-now{
 
 /* Partner Programs */
 .partner-programs{
-    min-height: 100%;
-    .card{
-        width: 380px;
-        min-height: 50%;
-        margin: 0;
-        position: relative;
-        background-color: $gray-200;
+    .cards-wrapper{
+        width: 100%;
+        .card{
+            width: 380px;
+            margin: 20px 0;
+            background-color: $gray-200;
 
-        .card-content{
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        &:first-child{
-            .card-content{
-                position: absolute;
-                right:20px;
-                @media(max-width: $md){
-                    position: relative;
-                    bottom: 0;
-                    right: 0;
+            .frame{
+                margin-bottom: 20px;
+                img{
+                    cursor: pointer;
                 }
             }
-        }
-        &:last-child{
+
             .card-content{
-                position: absolute;
-                left: 20px;
-                @media(max-width: $md){
-                    position: relative;
-                    top: 0;
-                    left: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .card-body{
+                p{
+                    font-size: 17px;
+                    margin: auto;
                 }
             }
-        }
-        
-        &.affiliate{
-            height: 756px;
-            min-height: 100%;
-            background-color: $gray-400;
-            z-index: 1;
-            position: relative;
-            &::after{
-                box-shadow: 1pt 1pt 22px 20px rgba(0, 0, 0, 0.22);
-                mix-blend-mode: multiply;
-                content: "";
-                position: absolute;
-                top: 0;
-                right: 0;
-                left: 0;
-                bottom: 0;
-                z-index: -1;
-            }
+
             .card-footer{
-                padding-bottom: 60px;
+                background: 0;
+                border: 0;
+                padding-bottom: 50px;
+
+                .btn{
+                    color: #fff;
+                    width: 235px;
+                    height: 60px;
+                    font-size: 20px;
+                    line-height: 2.2;
+                }
             }
-            @media(max-width: $md){
-                height: auto;
-            }
-        }
 
-        .card-text{
-            font-size: 17px;
-            padding: 0 30px;
-        }
-
-        a.btn{
-            width: 234px;
-            height: 65px;
-            font-size: 21px;
-            line-height: 2.4;
-            color: #fff;
-        }
-
-        &:first-child{
-            margin: 30px 0;
-            margin-right: -20px;
-            @media(max-width: $md){
+            &:not(:first-child, :last-child){
+                background-color: $gray-400;
                 margin: 0;
-                margin-right: 0;
+                z-index: 1;
+
+                .card-body{
+                    p{
+                        padding: 0 30px;
+                    }
+                }
+
+                .card-footer{
+                    padding-bottom: 60px;
+                }
+
+                &::after{
+                    box-shadow: 1pt 1pt 22px 20px rgba(0, 0, 0, 0.22);
+                    mix-blend-mode: multiply;
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    z-index: -1;
+                }
             }
-        }
-        &:last-child{
-            margin: 30px 0;
-            margin-left: -20px;
-            @media(max-width: $md){
+
+            &:first-child{
+                padding-right: 20px;
+                left: 20px;
+                @media(max-width: $lg){
+                    left: 0;
+                    padding-right: 0;
+                }
+            }
+            &:last-child{
+                padding-left: 20px;
+                right: 20px;
+                @media(max-width: $lg){
+                    right: 0;
+                    padding-left: 0;
+                }
+            }
+
+            @media(max-width: $lg){
+                width: 100%;
                 margin: 0;
-                margin-left: 0;
             }
-        }
-        @media(max-width: $sm){
-            width: 100%;
-            min-height: 100%;
-            height: 100%;
-        }
-        .card-footer{
-            background: none;
-            border: none;
-            padding-bottom: 50px;
         }
     }
 }
 /* END Partner Programs */
+
+
+/*BEGIN footer*/
+footer.site-footer{
+    background-color: $dark;
+    color: #fff;
+
+    section{
+        font-size: 10px;
+        p{
+            max-width: 100%;
+        }
+     }
+
+    .btn{
+        width: 210px;
+        height: 50px;
+        font-size: 12px;
+        line-height: 3;
+    }
+
+    .vr{
+        margin-right: 60px;
+    }
+
+    nav.site-map{
+
+        width: 90%;
+
+        h5{
+            color: $blue-200;
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            list-style-type: none;
+            padding: 0;
+            li{
+
+                font-size: 14px;
+            }
+        }
+
+        .social{
+            display: flex;
+            flex-direction: column;
+            .icons{
+                display: flex;
+                a{
+                    font-size: 25px;
+                    color: $primary;
+                    &:not(:last-child){
+                        padding-right: 10px;
+                    }
+                    transition: ease-in-out 300ms;
+                    &:hover{
+                        color: $gray-400;
+                    }
+                }
+            }
+        }
+    }
+
+}
+/*END footer*/
