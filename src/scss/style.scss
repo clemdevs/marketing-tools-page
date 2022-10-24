@@ -64,7 +64,7 @@ section.dark{
 
 
 .card{
-    background: transparent
+    background: transparent;
 }
 
 div.cta{
@@ -255,16 +255,10 @@ section{
 
     &:first-child{
         margin-left: 0;
-        @media(max-width: $md){
-            display: none;
-        }
     }
 
     &:last-child{
         margin-right: 0;
-        @media(max-width: $md){
-            display: none;
-        }
     }
 
     @media(max-width: $xl){
@@ -344,6 +338,19 @@ section.resources{
 
 /* BEGIN carousel */
 .carousel-dark{
+    .card{
+        &:first-child{
+            @media(max-width: $md){
+                display: none;
+            }
+        }
+    
+        &:last-child{
+            @media(max-width: $md){
+                display: none;
+            }
+        }
+    }
     position: relative;
     .cards-wrapper{
         min-height: 560px;
