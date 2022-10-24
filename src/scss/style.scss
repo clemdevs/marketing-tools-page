@@ -22,6 +22,7 @@ $blue-200: #0496ff;
 $blue-400: #051945;
 $blue-900: #101920;
 
+$gray-100: #8f8f8f;
 $gray-200: #7b8994;
 $gray-400: #47525d;
 
@@ -44,7 +45,11 @@ p.lead{
     }
 }
 
-.vr{
+p.light{
+    color: $gray-100;
+}
+
+.vr, .hr{
     opacity: 1;
     width: 2px;
 }
@@ -229,7 +234,10 @@ section{
         max-width: 440px;
     }
     p{
-        max-width: 545px; 
+        max-width: 580px; 
+        @media(max-width: $xl){
+            width: 100%;
+        }
     }
     .vr{
         margin-right: 40px;
@@ -241,19 +249,39 @@ section{
 /* BEGIN cards */
 .card{
     width: 340px;
+    height: 100%;
     margin: 0 40px;
     border: 0;
 
     &:first-child{
         margin-left: 0;
+        @media(max-width: $md){
+            display: none;
+        }
     }
 
     &:last-child{
         margin-right: 0;
+        @media(max-width: $md){
+            display: none;
+        }
+    }
+
+    @media(max-width: $xl){
+        width: 280px;
+        margin: 0 20px;
     }
 
     @media(max-width: $md){
         margin: 20px 0;
+    }
+
+    &:not(:first-child, :last-child){
+        .frame-rect{
+            &::before{
+                content: url('../img/svg/rectangle-darker.svg');
+            }
+        }
     }
 
     .frame-rect{
@@ -263,10 +291,18 @@ section{
         position: relative;
         height: 190px;
 
+        transition: hover ease-in-out 300ms;
+
         .img-wrapper{
             display: inline-block;
             cursor: pointer;
             z-index: 1;
+        }
+
+        &:hover{
+            &::before{
+                content: url('../img/svg/rectangle-darker.svg');
+            }
         }
 
         &::before{
@@ -275,15 +311,23 @@ section{
             top: 0;
             height: 100%;
             z-index: 1;
+            @media(max-width: $lg){
+                transform: scale(0.8);
+            }
+
+
         }
 
         &::after{
             content: url('../img/svg/rectangle-outline.svg');
             position: absolute;
             top: 0;
-            transform: translate(9px, 9px);
+            transform: translate(10px, 15px);
             height: 100%;
             z-index: 0;
+            @media(max-width: $lg){
+                transform: translate(10px, 15px) scale(0.8);
+            }
         }
     }
 }
@@ -297,62 +341,45 @@ section.resources{
 }
 /* END section resources */
 
+
 /* BEGIN carousel */
-
-
-    .carousel-dark{
-        position: relative;
-            .carousel-indicators{
-            top: 100%;
-            bottom: unset;
-            button[data-bs-target].active{
-                width: 20px; height: 20px;
-                margin-right: 10px;
-                margin-left: 10px;
-                background-color: #47525d;
-                border-radius: 50%;
-            }
-            button[data-bs-target]{
-                width: 20px; height: 20px;
-                background-color: #dedede;
-                border-radius: 50%;
-            }
-
+.carousel-dark{
+    position: relative;
+    .cards-wrapper{
+        min-height: 560px;
+    }
+    .carousel-indicators{
+        top: 100%;
+        bottom: unset;
+        button[data-bs-target].active{
+            width: 20px; height: 20px;
+            background-color: #47525d;
+            border-radius: 50%;
         }
-        // .carousel-control-prev{
-        //     transform: translateX(-100%);
-        //     @media(max-width: $xl){
-        //         transform: translateX(0);
-        //     }
-        // }
-        // .carousel-control-next{
-        //     transform: translateX(100%);
-        //     @media(max-width: $xl){
-        //         transform: translateX(0);
-        //     }
-        // }
-
-        // .carousel-item.active{
-        //     display: flex;
-        //     justify-content: center;
-        //     @media(max-width: $xl){
-        //         flex-direction: column;
-        //         align-items: center;
-        //     }
-        // }
-        
-        // .carousel-item{
-        //     display: none;
-        // }
-    
+        button[data-bs-target]{
+            width: 20px; height: 20px;
+            background-color: #dedede;
+            border-radius: 50%;
+        }
+        button[data-bs-target]:not(:last-child){
+            margin-right: 10px;
+        }
+    }  
+    .carousel-control-prev, .carousel-control-next{
+        width: auto;
+        height: 100%;
+    }
 }
 /* END carousel */
 
 
-
+/*BEGIN about*/
 section.about{
-
-    
+    h1{
+        @media(min-width: $xl){
+            width: 75%;
+        }
+    }
     .holder{
         padding-top: 0.5em;
         padding-left: 80px;
@@ -368,12 +395,47 @@ section.about{
             }
         }
     }
+
+    .img-wrapper{
+        position: relative;
+
+        .img-fluid{
+            width: 100%;
+        }
+
+        .overlay{
+            position: absolute;
+            width: 100%; height: 100%;
+
+            &--dark-overlay-25{
+                background-color: $dark;
+                opacity: 0.25;
+            }
+
+            &--dark-overlay-70{
+                background-color: $dark;
+                mix-blend-mode: multiply;
+                opacity: 0.70;
+            }
+        }
+
+        .img-vectors{
+            position: absolute;
+            background: url('../img/svg/blue-lines.svg') no-repeat top right;
+            background-size: cover;
+            width: 100%; height: 100%;
+            transform: scale(0.7) translate(-38.3%, -92.7%);
+            top: 50%;
+            left: 0;
+            z-index: 1;
+        }
+
+    }
 }
+/*END about*/
 
-// section.call-to-action{
-//     // padding: 120px 0;
-// }
 
+/*BEGIN register now*/
 section.register-now{
 
     .card{
@@ -391,14 +453,17 @@ section.register-now{
         }
     }
 }
+/*END register now*/
 
 
-/* Partner Programs */
+/* BEGIN Partner Programs */
 .partner-programs{
     .cards-wrapper{
         width: 100%;
+        min-height: auto;
         .card{
             width: 380px;
+            height: auto;
             margin: 20px 0;
             background-color: $gray-200;
 
